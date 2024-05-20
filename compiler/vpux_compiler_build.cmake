@@ -57,7 +57,7 @@ list(APPEND VPUX_COMPILER_CMAKE_FLAGS -Dgflags_DIR=${CMAKE_CURRENT_SOURCE_DIR}/o
 ExternalProject_Add(
   vpux_compiler_build
   DOWNLOAD_COMMAND ""
-  DEPENDS vpux_plugin_source openvino_source
+  DEPENDS vpux_plugin_source openvino_build
   PREFIX ${OPENVINO_PREFIX_DIR}
   SOURCE_DIR ${OPENVINO_SOURCE_DIR}
   BINARY_DIR ${VPUX_COMPILER_BINARY_DIR}
