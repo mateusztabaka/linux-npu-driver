@@ -32,6 +32,7 @@ list(APPEND COMMON_CMAKE_ARGS -DCMAKE_MAKE_PROGRAM:FILEPATH=${CMAKE_MAKE_PROGRAM
 ### OpenVINO ###
 set(OPENVINO_BINARY_DIR "${OPENVINO_PREFIX_DIR}/build")
 file(MAKE_DIRECTORY ${OPENVINO_BINARY_DIR})
+set(OPENVINO_ROOT_DIR "${OPENVINO_PREFIX_DIR}/root")
 
 ExternalProject_Add(
   openvino_build
@@ -44,7 +45,8 @@ ExternalProject_Add(
   CMAKE_ARGS
     ${COMMON_CMAKE_ARGS}
     -DCMAKE_BUILD_TYPE=Release
-    -DCMAKE_INSTALL_PREFIX=${OPENVINO_PACKAGE_DIR})
+    -DCMAKE_INSTALL_PREFIX=${OPENVINO_PACKAGE_DIR}
+    -DOUTPUT_ROOT=${OPENVINO_ROOT_DIR})
 
 ### OpenCV ###
 set(OPENCV_PREFIX_DIR "${CMAKE_BINARY_DIR}/third_party/opencv")
@@ -87,7 +89,8 @@ ExternalProject_Add(
     -DCMAKE_BUILD_TYPE=Release
     -DCMAKE_INSTALL_PREFIX=${OPENVINO_PACKAGE_DIR}
     -DOpenCV_DIR=${OPENCV_BINARY_DIR}
-    -DInferenceEngineDeveloperPackage_DIR=${OPENVINO_BINARY_DIR})
+    -DInferenceEngineDeveloperPackage_DIR=${OPENVINO_BINARY_DIR}
+    -DOUTPUT_ROOT=${OPENVINO_ROOT_DIR})
 
 ### Sample applications from OpenVINO (benchmark_app ...) ###
 set(SAMPLES_APPS_BUILD_DIR ${OPENVINO_PREFIX_DIR}/build-samples)
@@ -114,7 +117,7 @@ ExternalProject_Add(
 set(COMPILE_TOOL_PACKAGE_DIR "${OPENVINO_PACKAGE_DIR}/tools/compile_tool")
 file(MAKE_DIRECTORY ${COMPILE_TOOL_PACKAGE_DIR})
 
-set(OPENVINO_BINARY_RELEASE_DIR "${OPENVINO_SOURCE_DIR}/bin/intel64/Release")
+set(OPENVINO_BINARY_RELEASE_DIR "${OPENVINO_ROOT_DIR}/bin/intel64/Release")
 
 add_custom_target(
   openvino_package ALL
