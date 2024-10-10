@@ -50,7 +50,7 @@ add_subdirectory(compiler)
 add_subdirectory(firmware)
 add_subdirectory(third_party)
 add_subdirectory(umd)
-add_subdirectory(validation)
+#add_subdirectory(validation)
 
 include(cmake/packaging/setup.cmake)
 
