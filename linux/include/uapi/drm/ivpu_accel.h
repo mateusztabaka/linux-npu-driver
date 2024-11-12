@@ -7,7 +7,7 @@
 #define __UAPI_IVPU_DRM_H__
 
 /* UPSTREAM: replace <drm/drm.h> with "drm.h" */
-#include <drm/drm.h>
+#include <libdrm/drm.h>
 
 #if defined(__cplusplus)
 extern "C" {

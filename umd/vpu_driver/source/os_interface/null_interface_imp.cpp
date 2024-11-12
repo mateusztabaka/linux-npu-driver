@@ -13,7 +13,6 @@
 #include "vpu_driver/source/utilities/log.hpp"
 
 #include <cstring>
-#include <drm/drm.h>
 #include <errno.h>
 #include <exception>
 #include <fcntl.h>

@@ -9,7 +9,6 @@
 #include "umd_dma_heap_system.hpp"
 
 #include <chrono>
-#include <drm/drm.h>
 #include <future>
 #include <level_zero/ze_api.h>
 #include <stdexcept>

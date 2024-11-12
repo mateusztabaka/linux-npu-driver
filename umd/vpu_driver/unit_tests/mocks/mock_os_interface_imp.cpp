@@ -17,7 +17,6 @@
 #include <api/vpu_jsm_api.h>
 #include <cstdlib>
 #include <cstring>
-#include <drm/drm.h>
 #include <errno.h>
 #include <uapi/drm/ivpu_accel.h>
 
